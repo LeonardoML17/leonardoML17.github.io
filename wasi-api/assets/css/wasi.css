@@ -1,0 +1,238 @@
+/* Contenedor principal */
+.wasi-properties-container {
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Estilos para el grid */
+.wasi-properties-grid {
+    display: grid;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+/* Estilos para la vista de lista */
+.wasi-properties-list .wasi-property-card {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.wasi-properties-list .property-image {
+    flex: 0 0 300px;
+    height: auto;
+}
+
+.wasi-properties-list .property-content {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* Estilos para el slider */
+.wasi-properties-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.wasi-properties-slider .wasi-slide {
+    scroll-snap-align: start;
+    flex: 0 0 300px;
+}
+
+/* Tarjeta de propiedad */
+.wasi-property-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.wasi-card-hover-shadow .wasi-property-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.wasi-card-hover-scale .wasi-property-card:hover {
+    transform: scale(1.03);
+}
+
+.wasi-card-hover-fade .wasi-property-card:hover {
+    opacity: 0.9;
+}
+
+/* Imagen de la propiedad */
+.property-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.wasi-property-card:hover .property-image img {
+    transform: scale(1.05);
+}
+
+/* Badge de precio */
+.property-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Contenido de la tarjeta */
+.property-content {
+    padding: 15px;
+}
+
+.property-title {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    line-height: 1.3;
+}
+
+.property-location {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.property-location i {
+    margin-right: 5px;
+}
+
+/* Características */
+.property-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.property-features .feature {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.property-features i {
+    margin-right: 5px;
+}
+
+/* Enlace */
+.property-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #2a5db0;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.property-link:hover {
+    background: #1a4a90;
+}
+
+/* Filtros */
+.wasi-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.wasi-filters .wasi-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wasi-filters input,
+.wasi-filters select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.wasi-filters button {
+    padding: 8px 15px;
+    background: #2a5db0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.wasi-filters button:hover {
+    background: #1a4a90;
+}
+
+/* Paginación */
+.wasi-pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.wasi-load-more {
+    padding: 10px 20px;
+    background: #2a5db0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.wasi-load-more:hover {
+    background: #1a4a90;
+}
+
+.wasi-load-more.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .wasi-properties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wasi-properties-list .wasi-property-card {
+        flex-direction: column;
+    }
+    
+    .wasi-properties-list .property-image {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .wasi-properties-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wasi-filters {
+        flex-direction: column;
+    }
+    
+    .wasi-filters .wasi-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
